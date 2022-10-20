@@ -22,17 +22,16 @@ public class Personne {
         this.dateNaissance = null;
     }*/
 
-    public Personne(String nom, String prenom) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public Personne(String nom, String prenom) throws Exception {
+        setNom(nom);
+        setPrenom(prenom);
         this.setCarte(new Carte(this));
     }
 
-    public Personne(String nouveauNom, String nouveauPrenom, LocalDate nouvelleDateNaissance)
-    {
-        //this.nom = nouveauNom;
-        //this.prenom = nouveauPrenom;
-        this(nouveauNom,nouveauPrenom);
+    public Personne(String nouveauNom, String nouveauPrenom, LocalDate nouvelleDateNaissance) throws Exception {
+        setNom(nouveauNom);
+        setPrenom(nouveauPrenom);
+        //this(nouveauNom,nouveauPrenom);
         this.dateNaissance = nouvelleDateNaissance;
     }
 
@@ -47,14 +46,15 @@ public class Personne {
         return nom.toUpperCase();
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom) throws Exception{
         if(nom.length() >= 3)
         {
             this.nom = nom;
         }
         else
         {
-            System.out.println("Le nom " + nom + " est invalide. Le nom n'est pas mis à jour.");
+            //System.out.println("Le nom " + nom + " est invalide. Le nom n'est pas mis à jour.");
+            throw new Exception("La proposition " + nom + " est invalide.");
         }
     }
 

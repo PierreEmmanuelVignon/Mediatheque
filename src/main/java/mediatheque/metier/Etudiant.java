@@ -6,7 +6,7 @@ public class Etudiant extends Adherent
 {
     private Univesite Campus;
 
-    public Etudiant(String nouveauNom, String nouveauPrenom, LocalDate nouvelleDateNaissance, Univesite campus) {
+    public Etudiant(String nouveauNom, String nouveauPrenom, LocalDate nouvelleDateNaissance, Univesite campus) throws Exception {
         super(nouveauNom, nouveauPrenom, nouvelleDateNaissance);
         this.Campus = campus;
     }
@@ -21,7 +21,7 @@ public class Etudiant extends Adherent
 
     @Override
     public Location louer(Ressource ress) {
-        System.out.println("Location au tarif étudiant de " + ress + " par " + this);
+        System.out.println("Location gratuite de " + ress + " par " + this);
         return null;
     }
 
